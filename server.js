@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("/", (_req, res) => {
-  res.json({ message: "Express server is running now checking ci-cd" });
+  res.json({ message: "hello class, we are good to go" });
 });
 
 app.listen(port, () => {
