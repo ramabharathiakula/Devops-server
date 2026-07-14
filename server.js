@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("/", (_req, res) => {
-  res.json({ message: "hello class wifi is not working " });
+  res.json({ message: "ufghgfjhello class wifi is not working " });
 });
 
 app.listen(port, () => {
