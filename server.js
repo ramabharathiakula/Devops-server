@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("/", (_req, res) => {
-  res.json({ message: "Express server is running " });
+  res.json({ message: "everything is fine " });
 });
 
 app.listen(port, () => {
