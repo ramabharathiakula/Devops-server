@@ -19,7 +19,7 @@ jobs:
           node-version: "24"
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
   deploy:
     needs: build
@@ -28,14 +28,12 @@ jobs:
     steps:
       - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
-
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-
           script: |
             cd ~/Devops-server
             git pull origin main
-            npm install
-            pm2 restart all || pm2 start server.js --name Devops-server
+            npm ci
+            pm2 restart Devops-server || pm2 start server.js --name Devops-server
